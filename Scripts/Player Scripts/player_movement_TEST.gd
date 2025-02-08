@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var acceleration: float = 600.0  # How fast the player accelerates
 @export var friction: float = 520.0  # How fast the player decelerates
 
+@onready var anim = $AnimatedSprite2D  # Reference to AnimatedSprite2D
+
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 
@@ -28,3 +30,18 @@ func _physics_process(delta):
 
 	# Move the character
 	move_and_slide()
+	
+func _process(delta: float) -> void:
+	handle_animation()
+	
+func handle_animation():
+	if velocity.length() > 0:
+		if abs(velocity.x) > abs(velocity.y):  # Moving left/right
+			anim.play("side")
+			anim.flip_h = velocity.x < 0  # Flip for left movement
+		elif velocity.y > 0:  # Moving down
+			anim.play("down")
+		else:  # Moving up
+			anim.play("up")
+	else:
+		anim.stop()  # Stops animation when idle
