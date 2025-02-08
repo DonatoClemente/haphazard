@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcsu4u7pqp7mi"]
+
+[ext_resource type="Texture2D" uid="uid://cpnahkg4p508e" path="res://Assets/Art/Player/Test_Player.png" id="1_2y7xu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul2qh"]
+atlas = ExtResource("1_2y7xu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekiq7"]
+atlas = ExtResource("1_2y7xu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwoga"]
+atlas = ExtResource("1_2y7xu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85yg0"]
+atlas = ExtResource("1_2y7xu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcqyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul2qh")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekiq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwoga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekiq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85yg0")
+}],
+"loop": true,
+"name": &"Walk_Forward",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0k7rh"]
+radius = 3.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_qb7yy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arbtp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_r6ibj"]
+
+[node name="Trey\'s Test Scene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="PlayerLight" type="Node" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="PlayerLight"]
+visible = false
+
+[node name="Player" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_lcqyd")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_0k7rh")
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="Background" type="MeshInstance2D" parent="Environment"]
+modulate = Color(0.537444, 0.209328, 0.0353902, 1)
+z_index = -5
+position = Vector2(1, 1)
+scale = Vector2(355, 355)
+mesh = SubResource("QuadMesh_qb7yy")
+
+[node name="Wall" type="StaticBody2D" parent="Environment"]
+position = Vector2(30, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Wall"]
+shape = SubResource("RectangleShape2D_arbtp")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/Wall"]
+modulate = Color(0.589096, 0.589096, 0.589096, 1)
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_r6ibj")
