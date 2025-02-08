@@ -21,7 +21,6 @@ texture = ExtResource("1_p7o10")
 [node name="WALKING_AUDIO" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_6r2up")
-stream_paused = true
 parameters/looping = true
 
 [node name="WalkerTimer" type="Timer" parent="."]

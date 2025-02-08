@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://htfou8af5j02"]
+
+[ext_resource type="Script" path="res://text_box_story.gd" id="1_2k6bd"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2k6bd")
+story_text = "Enter Script Blah blah blah blah blah blah blahEnter Script Blah blah blah blah blah blah blah
+Enter Script Blah blah blah blah blah blah blah
+Enter Script Blah blah blah blah blah blah blah
+Enter Script Blah blah blah blah blah blah blah
+
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 310.0
+offset_bottom = 40.0
+text = "Text"
