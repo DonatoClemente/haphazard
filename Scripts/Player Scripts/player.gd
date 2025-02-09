@@ -10,6 +10,12 @@ extends CharacterBody2D
 
 @export var flashlight_toggle: bool = false
 
+@onready var Key: bool  = false
+@onready var Gas: bool  = false
+@onready var Oil: bool  = false
+@onready var Lever: bool  = false
+@onready var Generator: bool  = true
+
 @onready var WALKING_AUDIO: AudioStreamPlayer2D = $WALKING_AUDIO
 
 # Battery properties
