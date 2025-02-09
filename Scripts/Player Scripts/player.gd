@@ -10,14 +10,18 @@ extends CharacterBody2D
 
 @export var flashlight_toggle: bool = false
 
-
 @onready var WALKING_AUDIO: AudioStreamPlayer2D = $WALKING_AUDIO
 
 # Battery properties
 var max_charge: int = 2200  # Maximum battery charge
 var current_charge: int = 2200  # Current battery charge
 var is_draining: bool = false  # Whether the battery is being used
+@export var progress_bar: ProgressBar
 
+func _ready() -> void:
+	add_to_group("player")
+	progress_bar.max_value = max_charge
+	progress_bar.value = max_charge
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 
@@ -52,7 +56,7 @@ func handle_animation():
 	if velocity.length() > 0:
 		if abs(velocity.x) > abs(velocity.y):  # Moving left/right
 			$AnimationPlayer.play("x")
-			anim.play("side")
+			#anim.play("side")
 			anim.flip_h = velocity.x < 0  # Flip for left movement
 			hand.flip_h = velocity.x < 0  # Flip for left movement
 			if velocity.x < 0 and $Sprites.scale.x > 0:
@@ -60,10 +64,10 @@ func handle_animation():
 			elif velocity.x > 0 and $Sprites.scale.x < 0:
 				$Sprites.scale.x *= -1 # Flipped
 		elif velocity.y > 0:  # Moving down
-			anim.play("down")
+			#anim.play("down")
 			$AnimationPlayer.play("down")
 		else:  # Moving up
-			anim.play("up")
+			#anim.play("up")
 			$AnimationPlayer.play("up")
 			
 		if not WALKING_AUDIO.playing:
@@ -71,7 +75,7 @@ func handle_animation():
 	else:
 		$AnimationPlayer.play("RESET")
 		WALKING_AUDIO.stop()
-		anim.stop()  # Stops animation when idle
+		#anim.stop()  # Stops animation when idle
 		
 func handle_flashlight(delta):
 	if current_charge <= 0 and flashlight_toggle:
@@ -104,6 +108,7 @@ func handle_flashlight(delta):
 # Function to drain battery gradually
 func drain_battery(delta):
 	current_charge -= delta
+	progress_bar.value = current_charge
 	print("draining " , delta)
 	current_charge = max(current_charge, 0)  # Ensure it doesn't go below 0
 	if current_charge <= 0:

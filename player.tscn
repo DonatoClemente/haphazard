@@ -1,18 +1,70 @@
-[gd_scene load_steps=15 format=3 uid="uid://cgcq8qe8xkq2b"]
+[gd_scene load_steps=25 format=3 uid="uid://k8pbpkxjkl0m"]
 
-[ext_resource type="Script" path="res://Scenes/testplayer.gd" id="1_76ibe"]
-[ext_resource type="Texture2D" uid="uid://dbn52e1wlu6ns" path="res://Assets/Art/Player/leg-left.PNG" id="2_amlxl"]
-[ext_resource type="Texture2D" uid="uid://phabyonbmk4x" path="res://Assets/Art/Player/leg-right.PNG" id="3_w4wm2"]
-[ext_resource type="Texture2D" uid="uid://ch73ndqvkn2w5" path="res://Assets/Art/Player/body-down.PNG" id="4_regwg"]
-[ext_resource type="Texture2D" uid="uid://ccale7xyvdy0g" path="res://Assets/Art/Player/body-up.PNG" id="5_wf6p3"]
-[ext_resource type="Texture2D" uid="uid://7u81h63o0wh" path="res://Assets/Art/Player/body-x.PNG" id="6_c4lht"]
-[ext_resource type="Texture2D" uid="uid://vx7xhhid4vgt" path="res://Assets/Art/Player/hand.PNG" id="7_thhu3"]
+[ext_resource type="Script" path="res://Scripts/Player Scripts/player.gd" id="1_87m3o"]
+[ext_resource type="Texture2D" uid="uid://cpnahkg4p508e" path="res://Assets/Art/Player/Test_Player.png" id="2_pj3wu"]
+[ext_resource type="Texture2D" uid="uid://uqaswo5mfpvd" path="res://Assets/Art/player_light_cone.png" id="3_nmdy6"]
+[ext_resource type="Script" path="res://Scripts/Player Scripts/FlashLight.gd" id="4_jm186"]
+[ext_resource type="Texture2D" uid="uid://vx7xhhid4vgt" path="res://Assets/Art/Player/hand.PNG" id="5_ixhwy"]
+[ext_resource type="PackedScene" uid="uid://j4v54piqccrg" path="res://Interactable components/interacting_component.tscn" id="6_v6m44"]
+[ext_resource type="Texture2D" uid="uid://dbn52e1wlu6ns" path="res://Assets/Art/Player/leg-left.PNG" id="7_hhbnc"]
+[ext_resource type="Texture2D" uid="uid://phabyonbmk4x" path="res://Assets/Art/Player/leg-right.PNG" id="8_iqqb6"]
+[ext_resource type="Texture2D" uid="uid://ch73ndqvkn2w5" path="res://Assets/Art/Player/body-down.PNG" id="9_i2qiq"]
+[ext_resource type="Texture2D" uid="uid://ccale7xyvdy0g" path="res://Assets/Art/Player/body-up.PNG" id="10_y8vd2"]
+[ext_resource type="Texture2D" uid="uid://7u81h63o0wh" path="res://Assets/Art/Player/body-x.PNG" id="11_0ewnd"]
+[ext_resource type="AudioStream" uid="uid://dll1yuqt2klap" path="res://Assets/Music and SFX/walking-sound-effect-272246.mp3" id="12_7tlqc"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e6rcr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul2qh"]
+atlas = ExtResource("2_pj3wu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekiq7"]
+atlas = ExtResource("2_pj3wu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwoga"]
+atlas = ExtResource("2_pj3wu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85yg0"]
+atlas = ExtResource("2_pj3wu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcqyd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_regwg")
+"texture": SubResource("AtlasTexture_ul2qh")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekiq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwoga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekiq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85yg0")
+}],
+"loop": true,
+"name": &"Walk_Forward",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0k7rh"]
+radius = 3.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p42bu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_i2qiq")
 }],
 "loop": true,
 "name": &"down",
@@ -20,7 +72,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_wf6p3")
+"texture": ExtResource("10_y8vd2")
 }],
 "loop": true,
 "name": &"up",
@@ -28,14 +80,12 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_c4lht")
+"texture": ExtResource("11_0ewnd")
 }],
 "loop": true,
 "name": &"x",
 "speed": 5.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_j4r3c"]
 
 [sub_resource type="Animation" id="Animation_n43kv"]
 length = 0.001
@@ -255,39 +305,71 @@ _data = {
 "x": SubResource("Animation_olx6e")
 }
 
-[node name="DonsAssetHouse" type="Node2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_87m3o")
 
-[node name="Testplayer" type="CharacterBody2D" parent="."]
-script = ExtResource("1_76ibe")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_lcqyd")
+animation = &"Idle"
+autoplay = "Idle"
 
-[node name="Sprites" type="Node2D" parent="Testplayer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_0k7rh")
 
-[node name="LeftLeg" type="Sprite2D" parent="Testplayer/Sprites"]
+[node name="Flashlight" type="PointLight2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+rotation = 6.28319
+scale = Vector2(0.34, 0.34)
+color = Color(1, 0.756863, 0.396078, 1)
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("3_nmdy6")
+offset = Vector2(0, 182)
+script = ExtResource("4_jm186")
+
+[node name="Hand" type="Sprite2D" parent="Flashlight"]
+visible = false
+y_sort_enabled = true
+position = Vector2(15, 5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_ixhwy")
+offset = Vector2(-10, 0)
+
+[node name="interacting_component" parent="." instance=ExtResource("6_v6m44")]
+
+[node name="Sprites" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.4)
+
+[node name="LeftLeg" type="Sprite2D" parent="Sprites"]
+y_sort_enabled = true
 position = Vector2(1, 0)
-texture = ExtResource("2_amlxl")
+texture = ExtResource("7_hhbnc")
 
-[node name="RightLeg" type="Sprite2D" parent="Testplayer/Sprites"]
+[node name="RightLeg" type="Sprite2D" parent="Sprites"]
+y_sort_enabled = true
 position = Vector2(1, 0)
-texture = ExtResource("3_w4wm2")
+texture = ExtResource("8_iqqb6")
 
-[node name="Body" type="AnimatedSprite2D" parent="Testplayer/Sprites"]
+[node name="Body" type="AnimatedSprite2D" parent="Sprites"]
+y_sort_enabled = true
 position = Vector2(1, 0)
-sprite_frames = SubResource("SpriteFrames_e6rcr")
+sprite_frames = SubResource("SpriteFrames_p42bu")
 animation = &"x"
 offset = Vector2(0, -0.918727)
 
-[node name="Hand" type="Sprite2D" parent="Testplayer"]
-position = Vector2(31, 0)
-texture = ExtResource("7_thhu3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Testplayer"]
-position = Vector2(0, 18)
-shape = SubResource("CircleShape2D_j4r3c")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Testplayer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_i3l2m")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+[node name="WALKING_AUDIO" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_7tlqc")
+volume_db = -42.0
+pitch_scale = 1.75
+parameters/looping = true
