@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcsu4u7pqp7mi"]
+[gd_scene load_steps=18 format=3 uid="uid://dcsu4u7pqp7mi"]
 
 [ext_resource type="Texture2D" uid="uid://cpnahkg4p508e" path="res://Assets/Art/Player/Test_Player.png" id="1_2y7xu"]
 [ext_resource type="Script" path="res://Scripts/Player Scripts/player_movement_TEST.gd" id="1_o6pcy"]
+[ext_resource type="Texture2D" uid="uid://d1qdqx8rqa53c" path="res://icon.svg" id="3_suqb7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul2qh"]
 atlas = ExtResource("1_2y7xu")
@@ -50,21 +51,37 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0k7rh"]
 radius = 3.0
 
+[sub_resource type="Gradient" id="Gradient_s4w0e"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.331169)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_08yo3"]
+gradient = SubResource("Gradient_s4w0e")
+width = 222
+height = 222
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_soiwl"]
+polygon = PackedVector2Array(1.21519, -2.55215, 58.3291, -17.0798, 47.7975, -39.4601, 28.3544, -65.3742, -29.9747, -58.3067, -61.5696, -18.2577, -64.4051, 38.2822, -12.1519, 60.2699, 44.557, 50.454, 58.7342, 15.5092, 1.21519, 1.76687)
+
 [sub_resource type="QuadMesh" id="QuadMesh_qb7yy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arbtp"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_r6ibj"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e08qx"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7ya6l"]
+light_mode = 2
+
 [node name="Trey\'s Test Scene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-
-[node name="PlayerLight" type="Node" parent="."]
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="PlayerLight"]
-visible = false
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_o6pcy")
@@ -78,12 +95,32 @@ autoplay = "Idle"
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_0k7rh")
 
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+color = Color(1, 0.756863, 0.396078, 1)
+blend_mode = 2
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_08yo3")
+
+[node name="FlashLightCone" type="PointLight2D" parent="Player"]
+position = Vector2(-3.8147e-06, 0.499996)
+scale = Vector2(2.46875, 2.54688)
+color = Color(1, 0.755406, 0.394396, 1)
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_08yo3")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Player/FlashLightCone"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_soiwl")
+occluder_light_mask = 2
+
 [node name="Environment" type="Node" parent="."]
 
 [node name="Background" type="MeshInstance2D" parent="Environment"]
 modulate = Color(0.537444, 0.209328, 0.0353902, 1)
 z_index = -5
-position = Vector2(1, 1)
+position = Vector2(63, -3)
 scale = Vector2(355, 355)
 mesh = SubResource("QuadMesh_qb7yy")
 
@@ -98,3 +135,24 @@ metadata/_edit_lock_ = true
 modulate = Color(0.589096, 0.589096, 0.589096, 1)
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_r6ibj")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Environment/Wall"]
+occluder = SubResource("OccluderPolygon2D_e08qx")
+
+[node name="Global Lighting" type="DirectionalLight2D" parent="."]
+visible = false
+energy = 0.8
+blend_mode = 1
+
+[node name="PlayerLight" type="Node" parent="."]
+
+[node name="Oclusion Object Test" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_7ya6l")
+position = Vector2(62, 47)
+scale = Vector2(0.210938, 0.203125)
+texture = ExtResource("3_suqb7")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.166736, 0.166892, 0.318945, 1)
