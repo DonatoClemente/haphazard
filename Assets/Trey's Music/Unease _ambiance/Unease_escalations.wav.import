@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctwkp5e0yrdfy"
+path="res://.godot/imported/Unease_escalations.wav-74258527b5f0392d2be2c5d449b367f4.sample"
+
+[deps]
+
+source_file="res://Assets/Trey's Music/Unease _ambiance/Unease_escalations.wav"
+dest_files=["res://.godot/imported/Unease_escalations.wav-74258527b5f0392d2be2c5d449b367f4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

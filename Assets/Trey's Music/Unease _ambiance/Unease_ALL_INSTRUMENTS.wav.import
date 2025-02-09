@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cus1ylvusjl58"
+path="res://.godot/imported/Unease_ALL_INSTRUMENTS.wav-a70d3268e6c62a3587fbb5550907b172.sample"
+
+[deps]
+
+source_file="res://Assets/Trey's Music/Unease _ambiance/Unease_ALL_INSTRUMENTS.wav"
+dest_files=["res://.godot/imported/Unease_ALL_INSTRUMENTS.wav-a70d3268e6c62a3587fbb5550907b172.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmggmqi32lj6"
+path="res://.godot/imported/Anticipation_loop section.wav-86248edc8697e9fd60ee075df6e88b53.sample"
+
+[deps]
+
+source_file="res://Assets/Trey's Music/Anticipation _main menu/Anticipation_loop section.wav"
+dest_files=["res://.godot/imported/Anticipation_loop section.wav-86248edc8697e9fd60ee075df6e88b53.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
