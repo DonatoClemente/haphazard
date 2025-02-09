@@ -27,7 +27,8 @@ func _process(delta: float) -> void:
 	var factor = clamp(1.0 - (distance / max_distance), 0.0, 1.0)
 	heart_beat_n_bass.volume_db = lerp(-12, 10, factor)
 	droning_noise.volume_db = lerp(-25, 0, factor)
-	if distance < 50 and randf_range(0, 200) < 1:
-		if roar.finished:
-			roar.play()
+	
+	if distance < 50 and randf_range(0, 666) < 1 and !roar.playing:
+		roar.play()
+
 	

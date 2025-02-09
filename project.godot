@@ -15,10 +15,6 @@ run/main_scene="res://Scenes/trey's_TEST_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Music="*res://Scenes/music.tscn"
-
 [input]
 
 move_up={
