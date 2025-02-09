@@ -1,0 +1,145 @@
+[gd_scene load_steps=17 format=3 uid="uid://dvcqmghwutbt8"]
+
+[ext_resource type="Script" path="res://Scenes/credits.gd" id="1_p7n8j"]
+[ext_resource type="Script" path="res://Scenes/firework.gd" id="3_a6bk6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v27c4"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_y1bqn"]
+_data = [Vector2(0.0707965, 0.103708), 0.0, 0.0, 0, 0, Vector2(0.448378, 0.781576), 0.0, 0.0, 0, 0, Vector2(0.902655, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nyqhm"]
+curve = SubResource("Curve_y1bqn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lhj3p"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(100, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(200, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_nyqhm")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 32
+
+[sub_resource type="Gradient" id="Gradient_7wqqm"]
+colors = PackedColorArray(0.635294, 0.635294, 0.635294, 1, 0, 0.729412, 0.729412, 0.556863)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3ei7m"]
+gradient = SubResource("Gradient_7wqqm")
+width = 1
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7tru3"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_xxllw"]
+_data = [Vector2(0.0058997, 1), 0.0, 0.0, 0, 0, Vector2(0.882006, 0.0283892), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1p7d0"]
+curve = SubResource("Curve_xxllw")
+
+[sub_resource type="Gradient" id="Gradient_ss5r7"]
+offsets = PackedFloat32Array(0, 0.286174, 0.665595, 0.932476)
+colors = PackedColorArray(0.687791, 0.282351, 0.799964, 1, 1, 1, 1, 1, 1, 1, 1, 0.27451, 0.819608, 0.45098, 0.866667, 0.858824)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1mrw0"]
+gradient = SubResource("Gradient_ss5r7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uab8y"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 98, 0)
+damping_max = 100.0
+scale_min = 0.5
+color_initial_ramp = SubResource("GradientTexture1D_1mrw0")
+alpha_curve = SubResource("CurveTexture_1p7d0")
+
+[sub_resource type="Gradient" id="Gradient_tek2h"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kyig8"]
+gradient = SubResource("Gradient_tek2h")
+width = 1
+fill_to = Vector2(0, 1)
+
+[node name="Node2D" type="CanvasLayer"]
+script = ExtResource("1_p7n8j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Control/HBoxContainer/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_v27c4")
+position = Vector2(-77, 567)
+scale = Vector2(2.24, 2.24)
+amount = 10
+sub_emitter = NodePath("../GPUParticles2D2")
+process_material = SubResource("ParticleProcessMaterial_lhj3p")
+texture = SubResource("GradientTexture2D_3ei7m")
+trail_enabled = true
+script = ExtResource("3_a6bk6")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Control/HBoxContainer/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_7tru3")
+position = Vector2(183, 341)
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_uab8y")
+texture = SubResource("GradientTexture2D_kyig8")
+trail_enabled = true
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_font_sizes/font_size = 50
+text = "Credits:"
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.877616, 0.877616, 0.877616, 1)
+theme_override_font_sizes/font_size = 50
+text = "Trey - 
+Donato - Art, Dev
+Ramiro - UI/UX, "
+
+[node name="Button" type="Button" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg4xw1bg7cpre"]
+
+[ext_resource type="Script" path="res://lighteffect.gd" id="1_tf0tx"]
+[ext_resource type="Texture2D" uid="uid://d1qdqx8rqa53c" path="res://icon.svg" id="2_g46ge"]
+
+[sub_resource type="Gradient" id="Gradient_i3wk2"]
+offsets = PackedFloat32Array(0, 0.297376, 0.530612, 0.784257, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.712129, 0.712129, 0.712129, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iclr5"]
+gradient = SubResource("Gradient_i3wk2")
+fill_from = Vector2(0.17094, 0.525641)
+fill_to = Vector2(0.965812, 0.478632)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_tf0tx")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.122252, 0.122252, 0.122252, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(391, 453)
+scale = Vector2(5.77344, 5.39844)
+energy = 0.65
+texture = SubResource("GradientTexture2D_iclr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(426, 397)
+texture = ExtResource("2_g46ge")

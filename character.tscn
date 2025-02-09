@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://btfibfl51a4nc"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_6kous"]
+[ext_resource type="Texture2D" uid="uid://d1qdqx8rqa53c" path="res://icon.svg" id="1_p7o10"]
+[ext_resource type="AudioStream" uid="uid://dll1yuqt2klap" path="res://Assets/Music and SFX/walking-sound-effect-272246.mp3" id="3_6r2up"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw4vo"]
+size = Vector2(131, 123)
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_6kous")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(55.5, 51.5)
+shape = SubResource("RectangleShape2D_aw4vo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(58, 48)
+texture = ExtResource("1_p7o10")
+
+[node name="WALKING_AUDIO" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_6r2up")
+parameters/looping = true
+
+[node name="WalkerTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="WalkerTimer" to="." method="_on_walker_timer_timeout"]
