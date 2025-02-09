@@ -1,0 +1,196 @@
+[gd_scene load_steps=3 format=3 uid="uid://y8u0s5k8psmb"]
+
+[ext_resource type="Script" path="res://home_menu.gd" id="1_51xyy"]
+[ext_resource type="Script" path="res://Scenes/volume.gd" id="2_xf2e4"]
+
+[node name="Node2D" type="CanvasLayer"]
+script = ExtResource("1_51xyy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Half Hazard"
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "
+"
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "
+"
+
+[node name="Play" type="Button" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Play"
+
+[node name="Options" type="Button" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Option"
+
+[node name="Quit" type="Button" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Quit"
+
+[node name="Credits" type="Button" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Credits"
+
+[node name="Options" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+
+[node name="ColorRect2" type="ColorRect" parent="Options/MarginContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+color = Color(0.74902, 0.72549, 0.988235, 1)
+
+[node name="Control" type="Control" parent="Options/MarginContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -1.0
+offset_right = 275.0
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Options/MarginContainer/ColorRect2/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="BackButton" type="HBoxContainer" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/BackButton"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"
+
+[node name="Label2" type="Label" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/BackButton"]
+layout_mode = 2
+text = "               "
+
+[node name="Label" type="Label" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/BackButton"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Settings"
+
+[node name="MarginContainer" type="MarginContainer" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="WindowSetting" type="HBoxContainer" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/WindowSetting"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Screen: "
+
+[node name="OptionButton" type="OptionButton" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/WindowSetting"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+selected = 0
+item_count = 2
+popup/item_0/text = "Full Screen"
+popup/item_0/id = 1
+popup/item_1/text = "Windowed"
+
+[node name="Audio" type="HBoxContainer" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/Audio"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Audio: "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/Audio"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Volume" type="HSlider" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/Audio/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_xf2e4")
+
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/BackButton/Button" to="." method="_on_button_pressed"]
+[connection signal="item_selected" from="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/WindowSetting/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="value_changed" from="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/Audio/VBoxContainer/Volume" to="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/Audio/VBoxContainer/Volume" method="_on_value_changed"]

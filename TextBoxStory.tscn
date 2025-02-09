@@ -4,14 +4,12 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_2k6bd")
-story_text = "Enter Script Blah blah blah blah blah blah blahEnter Script Blah blah blah blah blah blah blah
-Enter Script Blah blah blah blah blah blah blah
-Enter Script Blah blah blah blah blah blah blah
-Enter Script Blah blah blah blah blah blah blah
-
+story_text = "Hello Adventure! Welcome to my lab
 "
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 310.0
 offset_bottom = 40.0
-text = "Text"
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 20
+text = "Stuff"
