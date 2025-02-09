@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://casbbpbq0jemf"]
+[gd_scene load_steps=5 format=3 uid="uid://btfibfl51a4nc"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_6kous"]
 [ext_resource type="Texture2D" uid="uid://d1qdqx8rqa53c" path="res://icon.svg" id="1_p7o10"]
-[ext_resource type="AudioStream" uid="uid://dll1yuqt2klap" path="res://Music and SFX/walking-sound-effect-272246.mp3" id="3_6r2up"]
+[ext_resource type="AudioStream" uid="uid://dll1yuqt2klap" path="res://Assets/Music and SFX/walking-sound-effect-272246.mp3" id="3_6r2up"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aw4vo"]
 size = Vector2(131, 123)
