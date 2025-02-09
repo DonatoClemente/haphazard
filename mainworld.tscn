@@ -1,11 +1,16 @@
-[gd_scene load_steps=14 format=4 uid="uid://ddhfffglfv05q"]
+[gd_scene load_steps=19 format=4 uid="uid://be4fbj8dcyb8k"]
 
 [ext_resource type="PackedScene" uid="uid://c8xx4aegu8jgu" path="res://UI Component/settings.tscn" id="1_2nust"]
 [ext_resource type="PackedScene" uid="uid://cjep3ghbxys84" path="res://UI Component/flashlight_meter.tscn" id="1_qoq8l"]
 [ext_resource type="Texture2D" uid="uid://dybt674cp4mo4" path="res://Assets/Art/tiles.png" id="1_yoqj7"]
 [ext_resource type="PackedScene" uid="uid://htfou8af5j02" path="res://TextBoxStory.tscn" id="2_8wshi"]
 [ext_resource type="Script" path="res://text_prompt.gd" id="2_lemth"]
-[ext_resource type="PackedScene" uid="uid://k8pbpkxjkl0m" path="res://player.tscn" id="2_ttrr5"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="2_ttrr5"]
+[ext_resource type="AudioStream" uid="uid://sq8p75h6d4c7" path="res://Assets/Trey's Music/Unease _ambiance/Unease_Kick and Base1.wav" id="7_jp3mq"]
+[ext_resource type="AudioStream" uid="uid://bpwcu13qsks14" path="res://Assets/Trey's Music/Unease _ambiance/Unease_animal hoots.wav" id="8_s5oh4"]
+[ext_resource type="AudioStream" uid="uid://b5lusv008ls76" path="res://Assets/Trey's Music/Unease _ambiance/Unease_droning.wav" id="9_775mr"]
+[ext_resource type="AudioStream" uid="uid://cmscrkf67qj5x" path="res://Assets/Trey's Music/Unease _ambiance/Unease_escalations.wav" id="10_v1g5j"]
+[ext_resource type="Script" path="res://Scripts/music_control.gd" id="11_6ijwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aps31"]
 size = Vector2(58, 26)
@@ -137,6 +142,30 @@ zoom = Vector2(4, 4)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.168627, 0.168627, 0.317647, 1)
+
+[node name="Heart Beat n Bass" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_jp3mq")
+autoplay = true
+
+[node name="Animal Noises" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8_s5oh4")
+autoplay = true
+
+[node name="Droning Noise" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("9_775mr")
+autoplay = true
+
+[node name="Escalating Noise" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("10_v1g5j")
+volume_db = 5.0
+autoplay = true
+
+[node name="Music CONTROL" type="Node2D" parent="."]
+script = ExtResource("11_6ijwb")
 
 [connection signal="body_entered" from="TextPrompt/EntrancePrompt" to="TextPrompt/EntrancePrompt" method="_on_body_entered"]
 [connection signal="body_exited" from="TextPrompt/EntrancePrompt" to="TextPrompt/EntrancePrompt" method="_on_body_exited"]

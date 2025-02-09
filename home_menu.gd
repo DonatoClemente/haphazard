@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var credit_scene = load("res://Scenes/Credits.tscn")
+@onready var MAINWORLD = load("res://mainworld.tscn")
 @onready var control_panel = $Options
 
 @onready var audio_intro: AudioStreamPlayer = $AudioStreamPlayer
@@ -15,6 +16,7 @@ func _ready() -> void:
 	audio_loop.play()
 	
 func _on_play_pressed() -> void:
+	get_tree().change_scene_to_packed(MAINWORLD)
 	pass # Replace with function body.
 
 
