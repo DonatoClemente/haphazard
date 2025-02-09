@@ -3,9 +3,16 @@ extends CanvasLayer
 @onready var credit_scene = load("res://Scenes/Credits.tscn")
 @onready var control_panel = $Options
 
+@onready var audio_intro: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio_loop: AudioStreamPlayer = $AudioStreamPlayer2
+
+
 func _ready() -> void:
 	if control_panel:
 		control_panel.visible = false
+	audio_intro.play()
+	await audio_intro.finished
+	audio_loop.play()
 	
 func _on_play_pressed() -> void:
 	pass # Replace with function body.
@@ -23,6 +30,8 @@ func _on_quit_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	get_tree().change_scene_to_packed(credit_scene)
+	audio_intro.stop()
+	audio_loop.stop()
 	pass # Replace with function body.
 
 
