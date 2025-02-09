@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjep3ghbxys84"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oygyg"]
+bg_color = Color(0.286275, 0.286275, 0.286275, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odjar"]
+bg_color = Color(0.196078, 0.803922, 0.196078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="FlashlightMeter" type="CanvasLayer"]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 652.0
+offset_bottom = 57.0
+theme_override_styles/background = SubResource("StyleBoxFlat_oygyg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_odjar")
+value = 100.0
+show_percentage = false
