@@ -1,8 +1,17 @@
 extends CanvasLayer
 
 @onready var text_display: RichTextLabel = $RichTextLabel
-@export_multiline var story_text: String = "Enter Script"
-@export var chars_per_batch: int = 50  # Number of characters to show per batch
+@export_multiline var story_text: String = "Enter Script":
+	set(value):
+		story_text = value
+		# Reset all variables when text changes
+		display_index = 0
+		batch_start = 0
+		is_batch_complete = false
+		text_display.text = ""
+		show()  # Show the text prompt
+
+@export var chars_per_batch: int = 50
 @export var display_speed: float = 0.05
 var display_timer: float = 0
 var display_index: int = 0
@@ -13,6 +22,7 @@ var is_batch_complete: bool = false
 func _ready() -> void:
 	text_display.text = ""
 	text_display.scroll_active = false
+	hide()  # Hide initially
 
 func _process(delta: float) -> void:
 	if not is_batch_complete and display_index < min(batch_start + chars_per_batch, story_text.length()):
@@ -35,7 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			is_batch_complete = true
 		else:  # Batch is complete, move to next batch
 			if display_index >= story_text.length():
-				queue_free()  # Or handle completion differently
+				hide()  # Hide the prompt when done
 				return
 				
 			text_display.text = ""  # Clear the previous batch

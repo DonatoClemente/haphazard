@@ -19,6 +19,7 @@ border_color = Color(0, 0, 0, 1)
 [node name="FlashlightMeter" type="CanvasLayer"]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 offset_left = 20.0
 offset_top = 30.0
 offset_right = 652.0

@@ -22,6 +22,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "Stuff"
 
 [node name="Label" type="Label" parent="RichTextLabel"]
+layout_mode = 0
 offset_left = 812.0
 offset_top = 190.0
 offset_right = 1107.0

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://UI Component/settings.gd" id="1_k2lw7"]
 
 [node name="Settings" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_k2lw7")
 
 [node name="Options" type="Control" parent="."]
@@ -124,5 +125,6 @@ script = ExtResource("1_ifvb1")
 layout_mode = 2
 text = "Back to Menu"
 
+[connection signal="item_selected" from="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/WindowSetting/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/Audio/VBoxContainer/Volume" to="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/Audio/VBoxContainer/Volume" method="_on_value_changed"]
 [connection signal="pressed" from="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
