@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 @onready var text_display: RichTextLabel = $RichTextLabel
 @export_multiline var story_text: String = "Enter Script"
