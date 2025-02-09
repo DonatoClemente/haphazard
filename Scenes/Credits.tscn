@@ -135,9 +135,9 @@ text = "Credits:"
 layout_mode = 2
 theme_override_colors/font_color = Color(0.877616, 0.877616, 0.877616, 1)
 theme_override_font_sizes/font_size = 50
-text = "Trey - 
+text = "Trey - Art, Dev, Music
 Donato - Art, Dev
-Ramiro - UI/UX, "
+Ramiro - UI/UX, Level Maker"
 
 [node name="Button" type="Button" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2

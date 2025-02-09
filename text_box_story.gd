@@ -11,7 +11,7 @@ extends CanvasLayer
 		text_display.text = ""
 		show()  # Show the text prompt
 
-@export var chars_per_batch: int = 50
+@export var chars_per_batch: int = 100
 @export var display_speed: float = 0.05
 var display_timer: float = 0
 var display_index: int = 0

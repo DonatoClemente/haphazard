@@ -1,4 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjep3ghbxys84"]
+[gd_scene load_steps=6 format=3 uid="uid://cjep3ghbxys84"]
+
+[ext_resource type="Texture2D" uid="uid://btpiqvyj7ka57" path="res://Assets/Art/flash_on.png" id="1_dpj23"]
+[ext_resource type="Script" path="res://UI Component/progress_bar.gd" id="1_mi4l4"]
+[ext_resource type="Texture2D" uid="uid://bofvgh465p51l" path="res://Assets/Art/flash_off.png" id="3_el3jg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oygyg"]
 bg_color = Color(0.286275, 0.286275, 0.286275, 1)
@@ -18,13 +22,23 @@ border_color = Color(0, 0, 0, 1)
 
 [node name="FlashlightMeter" type="CanvasLayer"]
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("status_sprite")]
 unique_name_in_owner = true
-offset_left = 20.0
-offset_top = 30.0
-offset_right = 652.0
-offset_bottom = 57.0
+offset_left = 77.0
+offset_top = 26.0
+offset_right = 709.0
+offset_bottom = 53.0
 theme_override_styles/background = SubResource("StyleBoxFlat_oygyg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_odjar")
 value = 100.0
 show_percentage = false
+script = ExtResource("1_mi4l4")
+status_sprite = NodePath("../Sprite2D")
+normal_texture = ExtResource("1_dpj23")
+empty_texture = ExtResource("3_el3jg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(95, 38)
+scale = Vector2(2.84375, 2.84375)
+texture = ExtResource("1_dpj23")
