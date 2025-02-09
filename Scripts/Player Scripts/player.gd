@@ -14,8 +14,8 @@ extends CharacterBody2D
 @onready var WALKING_AUDIO: AudioStreamPlayer2D = $WALKING_AUDIO
 
 # Battery properties
-var max_charge: int = 2200  # Maximum battery charge
-var current_charge: int = 2200  # Current battery charge
+var max_charge: int = 2250  # Maximum battery charge
+var current_charge: int = 2250  # Current battery charge
 var is_draining: bool = false  # Whether the battery is being used
 
 func _physics_process(delta):

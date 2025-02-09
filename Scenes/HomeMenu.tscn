@@ -168,6 +168,7 @@ item_count = 2
 popup/item_0/text = "Full Screen"
 popup/item_0/id = 1
 popup/item_1/text = "Windowed"
+popup/item_1/id = 1
 
 [node name="Audio" type="HBoxContainer" parent="Options/MarginContainer/ColorRect2/Control/MarginContainer/HBoxContainer/VSplitContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
