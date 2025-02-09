@@ -10,6 +10,9 @@ extends CharacterBody2D
 
 @export var flashlight_toggle: bool = false
 
+
+@onready var WALKING_AUDIO: AudioStreamPlayer2D = $WALKING_AUDIO
+
 # Battery properties
 var max_charge: int = 2200  # Maximum battery charge
 var current_charge: int = 2200  # Current battery charge
@@ -62,14 +65,19 @@ func handle_animation():
 		else:  # Moving up
 			anim.play("up")
 			$AnimationPlayer.play("up")
+			
+		if not WALKING_AUDIO.playing:
+			WALKING_AUDIO.play()
 	else:
 		$AnimationPlayer.play("RESET")
+		WALKING_AUDIO.stop()
 		anim.stop()  # Stops animation when idle
 		
 func handle_flashlight(delta):
 	if current_charge <= 0 and flashlight_toggle:
 		flashlight.flashlight_off()
 		flashlight_toggle = false
+		hand.visible = false
 		set_active(false)
 		
 	if current_charge <= 0:

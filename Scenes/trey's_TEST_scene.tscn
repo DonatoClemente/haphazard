@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dcsu4u7pqp7mi"]
+[gd_scene load_steps=34 format=3 uid="uid://dcsu4u7pqp7mi"]
 
 [ext_resource type="Texture2D" uid="uid://cpnahkg4p508e" path="res://Assets/Art/Player/Test_Player.png" id="1_2y7xu"]
 [ext_resource type="Script" path="res://Scripts/Player Scripts/player.gd" id="1_o6pcy"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ch73ndqvkn2w5" path="res://Assets/Art/Player/body-down.PNG" id="9_yy3mi"]
 [ext_resource type="Texture2D" uid="uid://ccale7xyvdy0g" path="res://Assets/Art/Player/body-up.PNG" id="10_qnfbj"]
 [ext_resource type="Texture2D" uid="uid://7u81h63o0wh" path="res://Assets/Art/Player/body-x.PNG" id="11_78ynw"]
+[ext_resource type="AudioStream" uid="uid://dll1yuqt2klap" path="res://Assets/Music and SFX/walking-sound-effect-272246.mp3" id="12_l47ky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul2qh"]
 atlas = ExtResource("1_2y7xu")
@@ -383,6 +384,13 @@ offset = Vector2(0, -0.918727)
 libraries = {
 "": SubResource("AnimationLibrary_i3l2m")
 }
+
+[node name="WALKING_AUDIO" type="AudioStreamPlayer2D" parent="Player"]
+unique_name_in_owner = true
+stream = ExtResource("12_l47ky")
+volume_db = -42.0
+pitch_scale = 1.75
+parameters/looping = true
 
 [node name="Environment" type="Node" parent="."]
 
