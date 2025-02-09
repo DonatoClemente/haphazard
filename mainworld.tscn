@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://ddhfffglfv05q"]
+[gd_scene load_steps=35 format=4 uid="uid://ddhfffglfv05q"]
 
 [ext_resource type="PackedScene" uid="uid://c8xx4aegu8jgu" path="res://UI Component/settings.tscn" id="1_2nust"]
 [ext_resource type="PackedScene" uid="uid://cjep3ghbxys84" path="res://UI Component/flashlight_meter.tscn" id="1_qoq8l"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dy7rssg0fuhjs" path="res://Assets/2D Art/Textbox.png" id="17_djv70"]
 [ext_resource type="Script" path="res://point_light_2d.gd" id="17_tthte"]
 [ext_resource type="Script" path="res://Interactable components/interactable.gd" id="18_cnace"]
+[ext_resource type="Script" path="res://door.gd" id="20_no1ac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aps31"]
 size = Vector2(23.1094, 57.3752)
@@ -418,7 +419,7 @@ position = Vector2(648, 816)
 
 [node name="Door" type="Sprite2D" parent="DoorWall" node_paths=PackedStringArray("intractable", "sprite_2d", "player", "door")]
 texture = ExtResource("17_djv70")
-script = ExtResource("6_gpfkm")
+script = ExtResource("20_no1ac")
 intractable = NodePath("Interactable")
 sprite_2d = NodePath(".")
 player = NodePath("../../Player")
