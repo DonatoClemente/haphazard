@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://baeh1tg03cauu"]
+[gd_scene load_steps=15 format=3 uid="uid://b3w51782c0ups"]
 
 [ext_resource type="Script" path="res://Scenes/testplayer.gd" id="1_76ibe"]
 [ext_resource type="Texture2D" uid="uid://dbn52e1wlu6ns" path="res://Assets/Art/Player/leg-left.PNG" id="2_amlxl"]

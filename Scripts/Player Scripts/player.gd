@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D  # Reference to AnimatedSprite2D
 @onready var flashlight = $Flashlight # Reference to flashlight
+@onready var hand: Sprite2D = $Flashlight/Hand
 
 @export var flashlight_toggle: bool = false
 
@@ -47,13 +48,22 @@ func _process(delta: float) -> void:
 func handle_animation():
 	if velocity.length() > 0:
 		if abs(velocity.x) > abs(velocity.y):  # Moving left/right
+			$AnimationPlayer.play("x")
 			anim.play("side")
 			anim.flip_h = velocity.x < 0  # Flip for left movement
+			hand.flip_h = velocity.x < 0  # Flip for left movement
+			if velocity.x < 0 and $Sprites.scale.x > 0:
+				$Sprites.scale.x *= -1  # Normal
+			elif velocity.x > 0 and $Sprites.scale.x < 0:
+				$Sprites.scale.x *= -1 # Flipped
 		elif velocity.y > 0:  # Moving down
 			anim.play("down")
+			$AnimationPlayer.play("down")
 		else:  # Moving up
 			anim.play("up")
+			$AnimationPlayer.play("up")
 	else:
+		$AnimationPlayer.play("RESET")
 		anim.stop()  # Stops animation when idle
 		
 func handle_flashlight(delta):
@@ -74,11 +84,13 @@ func handle_flashlight(delta):
 	if current_charge > 0 and Input.is_action_just_pressed("flashlight_toggle") and !flashlight_toggle:
 		flashlight.flashlight_on()
 		flashlight_toggle = true
+		hand.visible = true
 		set_active(true)
 		
 	elif Input.is_action_just_pressed("flashlight_toggle") and flashlight_toggle:
 		flashlight.flashlight_off()
 		flashlight_toggle = false
+		hand.visible = false
 		set_active(false)
 		
 # Function to drain battery gradually
