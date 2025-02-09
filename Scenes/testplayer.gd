@@ -28,4 +28,3 @@ func _physics_process(delta: float) -> void:
 				$AnimationPlayer.play("up")
 
 	move_and_slide()
-tween
