@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c4tlvm3og5xw3"
+path="res://.godot/imported/monster roar.wav-004d05a532f0a5cac4f6f3ed21d101f3.sample"
+
+[deps]
+
+source_file="res://Assets/Trey's Music/monster roar.wav"
+dest_files=["res://.godot/imported/monster roar.wav-004d05a532f0a5cac4f6f3ed21d101f3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

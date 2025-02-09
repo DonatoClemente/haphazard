@@ -115,7 +115,6 @@ func handle_flashlight(delta):
 func drain_battery(delta):
 	current_charge -= delta
 	progress_bar.value = current_charge
-	print("draining " , delta)
 	current_charge = max(current_charge, 0)  # Ensure it doesn't go below 0
 	if current_charge <= 0:
 		flashlight.flashlight_off()
