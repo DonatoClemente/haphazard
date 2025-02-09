@@ -16,7 +16,7 @@ extends CharacterBody2D
 var max_charge: int = 2250  # Maximum battery charge
 var current_charge: int = 2250  # Current battery charge
 var is_draining: bool = false  # Whether the battery is being used
-@export var progress_bar: ProgressBar
+@onready var progress_bar: ProgressBar = %ProgressBar
 
 func _ready() -> void:
 	add_to_group("player")
