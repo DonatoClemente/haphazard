@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://j4v54piqccrg"]
+
+[ext_resource type="Script" path="res://Interactable components/interacting_component.gd" id="1_fsuav"]
+[ext_resource type="FontFile" uid="uid://cxy6edak4a6a1" path="res://Assets/Fonts/BMSPA___.TTF" id="2_hga5y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fs30"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tkvm8"]
+font = ExtResource("2_hga5y")
+font_size = 8
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="interacting_component" type="Node2D"]
+script = ExtResource("1_fsuav")
+
+[node name="Interact Range" type="Area2D" parent="."]
+z_index = 25
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact Range"]
+shape = SubResource("CircleShape2D_2fs30")
+
+[node name="InteractLabel" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -51.0
+offset_right = 33.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.987356, 1.0672)
+theme_override_fonts/font = ExtResource("2_hga5y")
+theme_override_font_sizes/font_size = 8
+text = "Press [E]"
+label_settings = SubResource("LabelSettings_tkvm8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Interact Range" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="Interact Range" to="." method="_on_interact_range_area_exited"]

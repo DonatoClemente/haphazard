@@ -43,8 +43,6 @@ func _physics_process(delta):
 	
 func _process(delta: float) -> void:
 	handle_animation()
-	
-
 
 func handle_animation():
 	if velocity.length() > 0:
