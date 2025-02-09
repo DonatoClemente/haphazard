@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cus1ylvusjl58"
+uid="uid://bbl2jah54cour"
 path="res://.godot/imported/Unease_ALL_INSTRUMENTS.wav-a70d3268e6c62a3587fbb5550907b172.sample"
 
 [deps]
@@ -18,7 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=0
+edit/loop_mode=2
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=0
