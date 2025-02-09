@@ -23,7 +23,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var distance = player.global_transform.origin.distance_to(monster.position)
+	var distance = player.global_position.distance_to(monster.position)
 	var factor = clamp(1.0 - (distance / max_distance), 0.0, 1.0)
 	heart_beat_n_bass.volume_db = lerp(-12, 10, factor)
 	droning_noise.volume_db = lerp(-25, 0, factor)
