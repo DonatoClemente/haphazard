@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvcqmghwutbt8"]
+[gd_scene load_steps=18 format=3 uid="uid://dvcqmghwutbt8"]
 
 [ext_resource type="Script" path="res://Scenes/credits.gd" id="1_p7n8j"]
 [ext_resource type="Script" path="res://Scenes/firework.gd" id="3_a6bk6"]
+[ext_resource type="AudioStream" uid="uid://bvl0ewmim5yke" path="res://Assets/Trey's Music/End credits/Resolved ease.wav" id="3_ahwq6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v27c4"]
 blend_mode = 1
@@ -141,5 +142,10 @@ Ramiro - UI/UX, "
 [node name="Button" type="Button" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ahwq6")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
