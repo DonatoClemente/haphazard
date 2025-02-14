@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://be4fbj8dcyb8k"]
+[gd_scene load_steps=50 format=4 uid="uid://be4fbj8dcyb8k"]
 
 [ext_resource type="PackedScene" uid="uid://c8xx4aegu8jgu" path="res://UI Component/settings.tscn" id="1_2nust"]
 [ext_resource type="Texture2D" uid="uid://dybt674cp4mo4" path="res://Assets/Art/tiles.png" id="1_yoqj7"]
@@ -25,6 +25,12 @@
 [ext_resource type="Texture2D" uid="uid://btpiqvyj7ka57" path="res://Assets/Art/flash_on.png" id="22_7schx"]
 [ext_resource type="Texture2D" uid="uid://bofvgh465p51l" path="res://Assets/Art/flash_off.png" id="23_1dg8f"]
 [ext_resource type="PackedScene" path="res://Scenes/monster.tscn" id="23_41g7a"]
+[ext_resource type="AudioStream" uid="uid://bpwcu13qsks14" path="res://Assets/Trey's Music/Unease _ambiance/Unease_animal hoots.wav" id="26_ayq83"]
+[ext_resource type="AudioStream" uid="uid://c4tlvm3og5xw3" path="res://Assets/Trey's Music/monster roar.wav" id="26_uskbd"]
+[ext_resource type="AudioStream" uid="uid://sq8p75h6d4c7" path="res://Assets/Trey's Music/Unease _ambiance/Unease_Kick and Base1.wav" id="27_33qhb"]
+[ext_resource type="AudioStream" uid="uid://cmscrkf67qj5x" path="res://Assets/Trey's Music/Unease _ambiance/Unease_escalations.wav" id="28_rlv1a"]
+[ext_resource type="AudioStream" uid="uid://b5lusv008ls76" path="res://Assets/Trey's Music/Unease _ambiance/Unease_droning.wav" id="29_2ombo"]
+[ext_resource type="Script" path="res://Scripts/music_control.gd" id="30_e38h2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aps31"]
 size = Vector2(23.1094, 57.3752)
@@ -553,6 +559,26 @@ color = Color(0.168627, 0.168627, 0.317647, 1)
 [node name="Monster" parent="." node_paths=PackedStringArray("player") instance=ExtResource("23_41g7a")]
 scale = Vector2(0.5, 0.5)
 player = NodePath("../Player")
+
+[node name="Monster Rawr xd" type="AudioStreamPlayer2D" parent="Monster"]
+stream = ExtResource("26_uskbd")
+pitch_scale = 0.82
+
+[node name="Heartbeat and Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_33qhb")
+
+[node name="Animal noises" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_ayq83")
+
+[node name="Escalating Noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_rlv1a")
+volume_db = 8.0
+
+[node name="Droning Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_2ombo")
+
+[node name="Music Control" type="Node2D" parent="."]
+script = ExtResource("30_e38h2")
 
 [connection signal="body_entered" from="TextPrompt/EntrancePrompt" to="TextPrompt/EntrancePrompt" method="_on_body_entered"]
 [connection signal="body_exited" from="TextPrompt/EntrancePrompt" to="TextPrompt/EntrancePrompt" method="_on_body_exited"]

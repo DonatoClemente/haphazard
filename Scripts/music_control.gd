@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var heart_beat_n_bass: AudioStreamPlayer = $"../Heart Beat n Bass"
-@onready var animal_noises: AudioStreamPlayer = $"../Animal Noises"
-@onready var droning_noise: AudioStreamPlayer = $"../Droning Noise"
+@onready var heart_beat_n_bass: AudioStreamPlayer = $"../Heartbeat and Bass"
+@onready var animal_noises: AudioStreamPlayer = $"../Animal noises"
+@onready var droning_noise: AudioStreamPlayer = $"../Droning Audio"
 @onready var escalating_noise: AudioStreamPlayer = $"../Escalating Noise"
-@onready var roar: AudioStreamPlayer = $"../MONSTER RAWR xd"
+@onready var roar: AudioStreamPlayer2D = $"../Monster/Monster Rawr xd"
 
 @onready var player: CharacterBody2D = $"../Player"
 @onready var monster: CharacterBody2D = $"../Monster"
