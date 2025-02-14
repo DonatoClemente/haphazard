@@ -1,11 +1,10 @@
-[gd_scene load_steps=40 format=4 uid="uid://bbnfp3bdjqqt8"]
+[gd_scene load_steps=44 format=4 uid="uid://be4fbj8dcyb8k"]
 
 [ext_resource type="PackedScene" uid="uid://c8xx4aegu8jgu" path="res://UI Component/settings.tscn" id="1_2nust"]
-[ext_resource type="PackedScene" uid="uid://cjep3ghbxys84" path="res://UI Component/flashlight_meter.tscn" id="1_qoq8l"]
 [ext_resource type="Texture2D" uid="uid://dybt674cp4mo4" path="res://Assets/Art/tiles.png" id="1_yoqj7"]
 [ext_resource type="PackedScene" uid="uid://htfou8af5j02" path="res://TextBoxStory.tscn" id="2_8wshi"]
 [ext_resource type="Script" path="res://text_prompt.gd" id="2_lemth"]
-[ext_resource type="PackedScene" uid="uid://bebsc0su7w75b" path="res://player.tscn" id="2_ttrr5"]
+[ext_resource type="PackedScene" uid="uid://k8pbpkxjkl0m" path="res://player.tscn" id="2_ttrr5"]
 [ext_resource type="Texture2D" uid="uid://chg6k8h2hm1b4" path="res://Assets/Art/key card.png" id="5_a5mq4"]
 [ext_resource type="PackedScene" uid="uid://hvibqsu6v2qb" path="res://Interactable components/interactable.tscn" id="6_5eqtr"]
 [ext_resource type="Texture2D" uid="uid://b18xo7flevqdq" path="res://Assets/Art/gas can.png" id="6_56h2l"]
@@ -22,7 +21,10 @@
 [ext_resource type="Script" path="res://point_light_2d.gd" id="17_tthte"]
 [ext_resource type="Script" path="res://Interactable components/interactable.gd" id="18_cnace"]
 [ext_resource type="Script" path="res://door.gd" id="20_no1ac"]
-[ext_resource type="PackedScene" uid="uid://d2glr116gp16l" path="res://Scenes/monster.tscn" id="23_41g7a"]
+[ext_resource type="Script" path="res://UI Component/progress_bar.gd" id="21_caodi"]
+[ext_resource type="Texture2D" uid="uid://btpiqvyj7ka57" path="res://Assets/Art/flash_on.png" id="22_7schx"]
+[ext_resource type="Texture2D" uid="uid://bofvgh465p51l" path="res://Assets/Art/flash_off.png" id="23_1dg8f"]
+[ext_resource type="PackedScene" path="res://Scenes/monster.tscn" id="23_41g7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aps31"]
 size = Vector2(23.1094, 57.3752)
@@ -149,6 +151,22 @@ size = Vector2(29, 87)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqjba"]
 size = Vector2(45, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oygyg"]
+bg_color = Color(0.286275, 0.286275, 0.286275, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odjar"]
+bg_color = Color(0.196078, 0.803922, 0.196078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 
@@ -500,11 +518,31 @@ shape = SubResource("CircleShape2D_7pmpt")
 position = Vector2(-2.5, -21)
 shape = SubResource("RectangleShape2D_wqjba")
 
-[node name="FlashlightMeter" parent="." instance=ExtResource("1_qoq8l")]
+[node name="FlashlightMeter" type="CanvasLayer" parent="."]
 
-[node name="Player" parent="." node_paths=PackedStringArray("progress_bar") instance=ExtResource("2_ttrr5")]
+[node name="ProgressBar" type="ProgressBar" parent="FlashlightMeter" node_paths=PackedStringArray("status_sprite")]
+unique_name_in_owner = true
+offset_left = 77.0
+offset_top = 26.0
+offset_right = 709.0
+offset_bottom = 53.0
+theme_override_styles/background = SubResource("StyleBoxFlat_oygyg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_odjar")
+value = 100.0
+show_percentage = false
+script = ExtResource("21_caodi")
+status_sprite = NodePath("../Sprite2D")
+normal_texture = ExtResource("22_7schx")
+empty_texture = ExtResource("23_1dg8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="FlashlightMeter"]
+unique_name_in_owner = true
+position = Vector2(95, 38)
+scale = Vector2(2.84375, 2.84375)
+texture = ExtResource("22_7schx")
+
+[node name="Player" parent="." instance=ExtResource("2_ttrr5")]
 position = Vector2(116, 104)
-progress_bar = NodePath("../FlashlightMeter/ProgressBar")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
@@ -536,4 +574,3 @@ player = NodePath("../Player")
 [connection signal="body_exited" from="TextPrompt/EntrancePrompt9" to="TextPrompt/EntrancePrompt9" method="_on_body_exited"]
 
 [editable path="TextPrompt/CanvasLayer"]
-[editable path="FlashlightMeter"]
