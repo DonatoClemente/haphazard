@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://bbnfp3bdjqqt8"]
+[gd_scene load_steps=36 format=4 uid="uid://bbnfp3bdjqqt8"]
 
 [ext_resource type="PackedScene" uid="uid://c8xx4aegu8jgu" path="res://UI Component/settings.tscn" id="1_2nust"]
 [ext_resource type="PackedScene" uid="uid://cjep3ghbxys84" path="res://UI Component/flashlight_meter.tscn" id="1_qoq8l"]
@@ -27,45 +27,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aps31"]
 size = Vector2(23.1094, 57.3752)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_dkln6"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_sny28"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_uuxfm"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg666"]
 texture = ExtResource("1_yoqj7")
 1:0/0 = 0
-1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sny28")
 2:0/0 = 0
-2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sny28")
 3:0/0 = 0
-3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sny28")
 4:0/0 = 0
-4:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sny28")
 5:0/0 = 0
-5:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sny28")
 0:1/0 = 0
-0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dkln6")
 1:1/0 = 0
-1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dkln6")
 2:1/0 = 0
 3:1/0 = 0
-3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uuxfm")
 4:1/0 = 0
-4:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uuxfm")
 5:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
@@ -131,9 +104,6 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_yg666")
 sources/2 = SubResource("TileSetAtlasSource_1dyrs")
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r0s7k"]
-light_mode = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pmpt"]
 
@@ -281,9 +251,6 @@ tile_map_data = PackedByteArray("AAD+//7/AgACAAEAAAD///7/AgACAAEAAAABAP7/AgACAAE
 tile_set = SubResource("TileSet_q30cu")
 
 [node name="Battery" type="Sprite2D" parent="---------------Enviroments---------------/Decoration" node_paths=PackedStringArray("intractable", "sprite_2d", "player")]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_r0s7k")
 position = Vector2(-47, 329)
 texture = ExtResource("8_c2djr")
 script = ExtResource("6_gpfkm")
@@ -316,9 +283,6 @@ position = Vector2(-47, 329)
 shape = SubResource("CircleShape2D_7pmpt")
 
 [node name="KeyCard" type="Sprite2D" parent="---------------Enviroments---------------/Decoration" node_paths=PackedStringArray("intractable", "sprite_2d", "player")]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_r0s7k")
 position = Vector2(650, 429)
 texture = ExtResource("5_a5mq4")
 script = ExtResource("9_dafah")
@@ -335,9 +299,6 @@ position = Vector2(-47, 329)
 shape = SubResource("CircleShape2D_7pmpt")
 
 [node name="GasTank" type="Sprite2D" parent="---------------Enviroments---------------/Decoration" node_paths=PackedStringArray("intractable", "sprite_2d", "player")]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_r0s7k")
 position = Vector2(393, 830)
 texture = ExtResource("6_56h2l")
 script = ExtResource("11_sd8pg")
@@ -352,9 +313,6 @@ interact_name = "Gas Tank (E)"
 shape = SubResource("CircleShape2D_7pmpt")
 
 [node name="OilSplatter" type="Sprite2D" parent="---------------Enviroments---------------/Decoration" node_paths=PackedStringArray("intractable", "sprite_2d", "player")]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_r0s7k")
 position = Vector2(303, 351)
 scale = Vector2(2, 2)
 texture = ExtResource("7_davkb")
@@ -372,9 +330,6 @@ position = Vector2(-47, 329)
 shape = SubResource("CircleShape2D_7pmpt")
 
 [node name="Generator" type="Sprite2D" parent="---------------Enviroments---------------/Decoration" node_paths=PackedStringArray("intractable", "sprite_2d", "player")]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_r0s7k")
 position = Vector2(338, 836)
 scale = Vector2(2, 2)
 texture = ExtResource("10_ex2al")
@@ -392,16 +347,10 @@ position = Vector2(-47, 329)
 shape = SubResource("CircleShape2D_7pmpt")
 
 [node name="Lever" type="Sprite2D" parent="---------------Enviroments---------------/Decoration"]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_r0s7k")
 position = Vector2(732, 1002)
 texture = ExtResource("11_4cex3")
 
 [node name="Battery2" type="Sprite2D" parent="---------------Enviroments---------------/Decoration" node_paths=PackedStringArray("intractable", "sprite_2d", "player")]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_r0s7k")
 position = Vector2(703, 701)
 texture = ExtResource("8_c2djr")
 script = ExtResource("6_gpfkm")
@@ -418,9 +367,6 @@ position = Vector2(-47, 329)
 shape = SubResource("CircleShape2D_7pmpt")
 
 [node name="Battery3" type="Sprite2D" parent="---------------Enviroments---------------/Decoration" node_paths=PackedStringArray("intractable", "sprite_2d", "player")]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_r0s7k")
 position = Vector2(581, 698)
 texture = ExtResource("8_c2djr")
 script = ExtResource("6_gpfkm")
@@ -437,9 +383,6 @@ position = Vector2(-47, 329)
 shape = SubResource("CircleShape2D_7pmpt")
 
 [node name="Battery4" type="Sprite2D" parent="---------------Enviroments---------------/Decoration" node_paths=PackedStringArray("intractable", "sprite_2d", "player")]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_r0s7k")
 position = Vector2(442, 843)
 texture = ExtResource("8_c2djr")
 script = ExtResource("6_gpfkm")
@@ -513,7 +456,6 @@ zoom = Vector2(4, 4)
 color = Color(0.168627, 0.168627, 0.317647, 1)
 
 [node name="Monster" parent="." node_paths=PackedStringArray("player") instance=ExtResource("23_41g7a")]
-scale = Vector2(0.5, 0.5)
 player = NodePath("../Player")
 
 [connection signal="body_entered" from="TextPrompt/EntrancePrompt" to="TextPrompt/EntrancePrompt" method="_on_body_entered"]
