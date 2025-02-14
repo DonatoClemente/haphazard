@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://be4fbj8dcyb8k"]
+[gd_scene load_steps=61 format=4 uid="uid://be4fbj8dcyb8k"]
 
 [ext_resource type="PackedScene" uid="uid://c8xx4aegu8jgu" path="res://UI Component/settings.tscn" id="1_2nust"]
 [ext_resource type="Texture2D" uid="uid://dybt674cp4mo4" path="res://Assets/Art/tiles.png" id="1_yoqj7"]
@@ -20,9 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://dy7rssg0fuhjs" path="res://Assets/2D Art/Textbox.png" id="17_djv70"]
 [ext_resource type="Script" path="res://point_light_2d.gd" id="17_tthte"]
 [ext_resource type="Script" path="res://Interactable components/interactable.gd" id="18_cnace"]
+[ext_resource type="Texture2D" uid="uid://bav5rer5ky5vj" path="res://Assets/2D Art/Broken_LabVat.png" id="19_p110h"]
 [ext_resource type="Script" path="res://door.gd" id="20_no1ac"]
+[ext_resource type="Texture2D" uid="uid://bg0b0lfonolto" path="res://Assets/2D Art/Lab Table.png" id="20_ue0rn"]
 [ext_resource type="Script" path="res://UI Component/progress_bar.gd" id="21_caodi"]
+[ext_resource type="Texture2D" uid="uid://qjms0tdjm407" path="res://Assets/2D Art/Vat.png" id="21_eot0e"]
 [ext_resource type="Texture2D" uid="uid://btpiqvyj7ka57" path="res://Assets/Art/flash_on.png" id="22_7schx"]
+[ext_resource type="Texture2D" uid="uid://bfh8n7wu3gwk0" path="res://Assets/2D Art/dead body.PNG" id="22_o0u7h"]
 [ext_resource type="Texture2D" uid="uid://bofvgh465p51l" path="res://Assets/Art/flash_off.png" id="23_1dg8f"]
 [ext_resource type="PackedScene" path="res://Scenes/monster.tscn" id="23_41g7a"]
 [ext_resource type="AudioStream" uid="uid://bpwcu13qsks14" path="res://Assets/Trey's Music/Unease _ambiance/Unease_animal hoots.wav" id="26_ayq83"]
@@ -155,6 +159,26 @@ fill_to = Vector2(0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7e2m"]
 size = Vector2(29, 87)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv41n"]
+size = Vector2(34, 72)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gmqcs"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uy5sa"]
+light_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_torng"]
+size = Vector2(49, 27)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1uvg5"]
+light_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrbsg"]
+size = Vector2(36, 36)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glm7v"]
+light_mode = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqjba"]
 size = Vector2(45, 20)
 
@@ -177,6 +201,7 @@ border_color = Color(0, 0, 0, 1)
 [node name="Node2D" type="Node2D"]
 
 [node name="Settings" parent="." instance=ExtResource("1_2nust")]
+visible = false
 
 [node name="TextPrompt" type="Node2D" parent="."]
 
@@ -498,6 +523,224 @@ interact_name = "Elevator"
 
 [node name="Elevator" type="CollisionShape2D" parent="---------------Enviroments---------------/PointLight2D/Elevator"]
 shape = SubResource("RectangleShape2D_t7e2m")
+
+[node name="Broken Vat" type="StaticBody2D" parent="---------------Enviroments---------------"]
+position = Vector2(148, -46)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Broken Vat"]
+position = Vector2(0, 26)
+shape = SubResource("RectangleShape2D_xv41n")
+
+[node name="Sprite2D" type="Sprite2D" parent="---------------Enviroments---------------/Broken Vat"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_gmqcs")
+texture = ExtResource("19_p110h")
+
+[node name="Table" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_uy5sa")
+position = Vector2(55, 84)
+texture = ExtResource("20_ue0rn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Table/StaticBody2D"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_torng")
+
+[node name="Table2" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_uy5sa")
+position = Vector2(195, 85)
+texture = ExtResource("20_ue0rn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Table2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Table2/StaticBody2D"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_torng")
+
+[node name="Table3" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_uy5sa")
+position = Vector2(247, 85)
+texture = ExtResource("20_ue0rn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Table3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Table3/StaticBody2D"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_torng")
+
+[node name="Table4" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_uy5sa")
+position = Vector2(196, 150)
+texture = ExtResource("20_ue0rn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Table4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Table4/StaticBody2D"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_torng")
+
+[node name="Table5" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_uy5sa")
+position = Vector2(216, 422)
+texture = ExtResource("20_ue0rn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Table5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Table5/StaticBody2D"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_torng")
+
+[node name="Table6" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_uy5sa")
+position = Vector2(272, 422)
+texture = ExtResource("20_ue0rn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Table6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Table6/StaticBody2D"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_torng")
+
+[node name="Vat" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1uvg5")
+position = Vector2(524, 561)
+texture = ExtResource("21_eot0e")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Vat"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Vat/StaticBody2D"]
+position = Vector2(-2, -8)
+shape = SubResource("RectangleShape2D_rrbsg")
+
+[node name="Vat2" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1uvg5")
+position = Vector2(555, 631)
+texture = ExtResource("21_eot0e")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Vat2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Vat2/StaticBody2D"]
+position = Vector2(-2, -8)
+shape = SubResource("RectangleShape2D_rrbsg")
+
+[node name="Vat3" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1uvg5")
+position = Vector2(453, 463)
+texture = ExtResource("21_eot0e")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Vat3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Vat3/StaticBody2D"]
+position = Vector2(-2, -8)
+shape = SubResource("RectangleShape2D_rrbsg")
+
+[node name="Vat4" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1uvg5")
+position = Vector2(751, 392)
+texture = ExtResource("21_eot0e")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Vat4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Vat4/StaticBody2D"]
+position = Vector2(-2, -8)
+shape = SubResource("RectangleShape2D_rrbsg")
+
+[node name="Vat5" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1uvg5")
+position = Vector2(-27, 427)
+texture = ExtResource("21_eot0e")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Vat5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Vat5/StaticBody2D"]
+position = Vector2(-2, -8)
+shape = SubResource("RectangleShape2D_rrbsg")
+
+[node name="Dead Body" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(176, 501)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body2" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(383, 560)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_o0u7h")
+
+[node name="Dead Body3" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(745, 832)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body4" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(461, 1002)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_o0u7h")
+
+[node name="Vat6" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1uvg5")
+position = Vector2(240, 1003)
+texture = ExtResource("21_eot0e")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="---------------Enviroments---------------/Vat6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---------------Enviroments---------------/Vat6/StaticBody2D"]
+position = Vector2(-2, -8)
+shape = SubResource("RectangleShape2D_rrbsg")
+
+[node name="Dead Body5" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(559, 389)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_o0u7h")
 
 [node name="DoorWall" type="StaticBody2D" parent="."]
 position = Vector2(648, 816)
