@@ -742,6 +742,117 @@ position = Vector2(559, 389)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("22_o0u7h")
 
+[node name="Pile of bodies" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(216, 920)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body" type="Sprite2D" parent="---------------Enviroments---------------/Pile of bodies"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(-37, -16.0001)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body2" type="Sprite2D" parent="---------------Enviroments---------------/Pile of bodies"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(-40, 8.99994)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body3" type="Sprite2D" parent="---------------Enviroments---------------/Pile of bodies"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(-58.8236, -5.88245)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+
+[node name="Dead Body4" type="Sprite2D" parent="---------------Enviroments---------------/Pile of bodies"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(-23.5294, 23.5293)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body5" type="Sprite2D" parent="---------------Enviroments---------------/Pile of bodies"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(-5.88239, -45.0981)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body6" type="Sprite2D" parent="---------------Enviroments---------------/Pile of bodies"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(-82.353, 25.4901)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+
+[node name="Dead Body7" type="Sprite2D" parent="---------------Enviroments---------------/Pile of bodies"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(72.549, 56.8627)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+
+[node name="Dead Body8" type="Sprite2D" parent="---------------Enviroments---------------/Pile of bodies"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(-33.3334, -3.92166)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+
+[node name="Dead Body6" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(675, 380)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body7" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(177, 928)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body8" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(171, 907)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+flip_h = true
+
+[node name="Dead Body9" type="Sprite2D" parent="---------------Enviroments---------------"]
+light_mask = 3
+visibility_layer = 3
+material = SubResource("CanvasItemMaterial_glm7v")
+position = Vector2(399, 921)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("22_o0u7h")
+
 [node name="DoorWall" type="StaticBody2D" parent="."]
 position = Vector2(648, 816)
 
